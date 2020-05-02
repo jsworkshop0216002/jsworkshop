@@ -33,3 +33,14 @@
 <br>
 
 <%= link_to 'New', new_product_path %>
+
+<select class="js-example-disabled-results">
+  <option value="one">First</option>
+  <option value="two" disabled="disabled">Second (disabled)</option>
+  <option value="three">Third</option>
+</select>
+
+<script>
+  var $disabledResults = $(".js-example-disabled-results");
+  $disabledResults.select2();
+</script>
