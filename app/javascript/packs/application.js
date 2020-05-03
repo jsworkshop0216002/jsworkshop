@@ -26,10 +26,32 @@ $(document).on("turbolinks:load", function(){
   });
 })
 
-
 //sweetalert2
 import Swal from 'sweetalert2'
 window.Swal = Swal
+
+$(document).on("turbolinks:load", function(){
+  $('.js-submit-btn').click(function(e){
+    e.preventDefault()
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You will create a product!?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire({
+            showConfirmButton: false,
+            title: 'Loading...'
+          },
+        )
+        $('.js-form').submit()
+      }
+    })
+  })
+})
 
 //datepicker
 import 'tempusdominus-bootstrap-4'
