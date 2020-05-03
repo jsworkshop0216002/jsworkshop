@@ -16,19 +16,24 @@
     <%= form.text_field :name, class: 'form-control'%>
   </div>
 
-  <div class="field form-group">
-    <%= form.label :money %>
-    <%= form.text_field :money, class: 'form-control'%>
-  </div>
-
-  <div class="field form-group">
+  <div class="form-group">
     <%= form.label :start_at %>
-    <%= form.time_select :start_at, class: 'form-control'%>
+      <div class="input-group date" id="start_at" data-target-input="nearest">
+          <input type="text" name="product[start_at]" class="form-control datetimepicker-input" data-target="#start_at"/>
+          <div class="input-group-append" data-target="#start_at" data-toggle="datetimepicker">
+              <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+      </div>
   </div>
 
-  <div class="field form-group">
-    <%= form.label :end_at %>
-    <%= form.time_select :end_at, class: 'form-control'%>
+  <div class="form-group">
+      <%= form.label :end_at %>
+      <div class="input-group date" id="end_at" data-target-input="nearest">
+          <input type="text" name="product[end_at]" class="form-control datetimepicker-input" data-target="#end_at"/>
+          <div class="input-group-append" data-target="#end_at" data-toggle="datetimepicker">
+              <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+      </div>
   </div>
 
   <div class="field form-group">

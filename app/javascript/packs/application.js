@@ -57,3 +57,20 @@ $(document).on("turbolinks:load", function(){
 import 'tempusdominus-bootstrap-4'
 import 'tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css'
 import 'font-awesome/css/font-awesome.min.css'
+
+$(document).on("turbolinks:load", function(){
+  $('#start_at').datetimepicker({
+    format: 'YYYY/MM/DD'
+  });
+  $('#end_at').datetimepicker({
+    useCurrent: false,
+      format: 'YYYY/MM/DD'
+  });
+
+  $("#start_at").on("change.datetimepicker", function (e) {
+      $('#end_at').datetimepicker('minDate', e.date);
+  });
+  $("#end_at").on("change.datetimepicker", function (e) {
+      $('#start_at').datetimepicker('maxDate', e.date);
+  });
+})
