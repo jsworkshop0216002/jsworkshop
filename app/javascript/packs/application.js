@@ -13,7 +13,7 @@ import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 //select2
-import $ from 'jquery'
+// import $ from 'jquery'
 import 'select2'
 import 'select2/dist/css/select2.min.css'
 window.$ = $
@@ -21,3 +21,8 @@ window.$ = $
 //sweetalert2
 import Swal from 'sweetalert2'
 window.Swal = Swal
+
+//datepicker
+import 'tempusdominus-bootstrap-4'
+import 'tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css'
+import 'font-awesome/css/font-awesome.min.css'
