@@ -13,7 +13,6 @@ import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 //select2
-// import $ from 'jquery'
 import 'select2'
 import 'select2/dist/css/select2.min.css'
 window.$ = $
