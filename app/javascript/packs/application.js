@@ -17,6 +17,16 @@ import 'select2'
 import 'select2/dist/css/select2.min.css'
 window.$ = $
 
+$(document).on("turbolinks:load", function(){
+  $('.js-currency-select').select2();
+  $(".js-tag-select").select2({
+    multiple: true,
+    tags: true,
+    placeholder: 'Select an option'
+  });
+})
+
+
 //sweetalert2
 import Swal from 'sweetalert2'
 window.Swal = Swal
