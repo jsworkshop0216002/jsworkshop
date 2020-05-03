@@ -13,16 +13,64 @@ import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 //select2
-// import $ from 'jquery'
 import 'select2'
 import 'select2/dist/css/select2.min.css'
 window.$ = $
+
+$(document).on("turbolinks:load", function(){
+  $('.js-currency-select').select2();
+  $(".js-tag-select").select2({
+    multiple: true,
+    tags: true,
+    placeholder: 'Select an option'
+  });
+})
 
 //sweetalert2
 import Swal from 'sweetalert2'
 window.Swal = Swal
 
+$(document).on("turbolinks:load", function(){
+  $('.js-submit-btn').click(function(e){
+    e.preventDefault()
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You will create a product!?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire({
+            showConfirmButton: false,
+            title: 'Loading...'
+          },
+        )
+        $('.js-form').submit()
+      }
+    })
+  })
+})
+
 //datepicker
 import 'tempusdominus-bootstrap-4'
 import 'tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css'
 import 'font-awesome/css/font-awesome.min.css'
+
+$(document).on("turbolinks:load", function(){
+  $('#start_at').datetimepicker({
+    format: 'YYYY/MM/DD'
+  });
+  $('#end_at').datetimepicker({
+    useCurrent: false,
+      format: 'YYYY/MM/DD'
+  });
+
+  $("#start_at").on("change.datetimepicker", function (e) {
+      $('#end_at').datetimepicker('minDate', e.date);
+  });
+  $("#end_at").on("change.datetimepicker", function (e) {
+      $('#start_at').datetimepicker('maxDate', e.date);
+  });
+})
